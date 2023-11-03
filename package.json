@@ -1,0 +1,19 @@
+{
+  "name": "patterns",
+  "version": "1.0.0",
+  "description": "Design patterns",
+  "main": "index.ts",
+  "scripts": {
+    "start": "tsc",
+    "watch": "npx ts-node index.ts"
+  },
+  "keywords": [
+    "design",
+    "patterns"
+  ],
+  "author": "Dmytro Litvinov",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  }
+}

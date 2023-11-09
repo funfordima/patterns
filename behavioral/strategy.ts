@@ -39,6 +39,7 @@ class SilentDuck implements IQuackBehavior {
 abstract class Duck {
   flyBehavior?: IFlyBehavior;
   quackBehavior?: IQuackBehavior;
+  //or we can implement setters for fly and quack behavior
 
   abstract display(): void
 

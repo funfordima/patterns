@@ -3,6 +3,7 @@ import { CalculateHandler } from './behavioral/calculate-strategy';
 import { TurkeyAdapter, WildTurkey, DuckSimulator, RedHeadDuck, DroneAdapter, SuperDrone } from './structural/adapter';
 import { RoundPeg, RoundHole, SquarePeg, SquarePegAdapter } from './structural/shape-adapter';
 import { WeatherStation, User, Logger, Alert } from './behavioral/observer';
+import { Editor, EmailAlertsListener, LoggingListener } from './behavioral/event-observer';
 
 console.log('Hey! Let\'s begin!');
 
@@ -58,19 +59,33 @@ console.log('Hey! Let\'s begin!');
 
 // ----------------------------------------------------------------
 
-const weatherStation = new WeatherStation(30, 7, 750);
-const userObserver = new User(weatherStation);
-const loggerObserver = new Logger(weatherStation);
-const alertObserver = new Alert(weatherStation);
+// const weatherStation = new WeatherStation(30, 7, 750);
+// const userObserver = new User(weatherStation);
+// const loggerObserver = new Logger(weatherStation);
+// const alertObserver = new Alert(weatherStation);
 
-weatherStation.registerObserver(userObserver);
-weatherStation.registerObserver(loggerObserver);
-weatherStation.registerObserver(alertObserver);
+// weatherStation.registerObserver(userObserver);
+// weatherStation.registerObserver(loggerObserver);
+// weatherStation.registerObserver(alertObserver);
 
-weatherStation.notifyObservers();
-console.log('----- /n/n');
+// weatherStation.notifyObservers();
+// console.log('----- /n/n');
 
-weatherStation.removeObserver(userObserver);
-alertObserver.unsubscribe();
+// weatherStation.removeObserver(userObserver);
+// alertObserver.unsubscribe();
 
-weatherStation.notifyObservers();
+// weatherStation.notifyObservers();
+
+// ----------------------------------------------------------------
+
+const editor = new Editor();
+const logger = new LoggingListener('log.txt', 'Someone has opened the file: %s');
+const emailAlerts = new EmailAlertsListener('admin@example.com', 'Someone has changed the file: %s');
+
+editor.eventManager.subscribe('openFile', emailAlerts);
+editor.eventManager.subscribe('getFileSize', logger);
+
+editor.getFileSize();
+editor.openFile('test.txt');
+
+// ----------------------------------------------------------------

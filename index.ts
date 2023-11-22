@@ -4,6 +4,8 @@ import { TurkeyAdapter, WildTurkey, DuckSimulator, RedHeadDuck, DroneAdapter, Su
 import { RoundPeg, RoundHole, SquarePeg, SquarePegAdapter } from './structural/shape-adapter';
 import { WeatherStation, User, Logger, Alert } from './behavioral/observer';
 import { Editor, EmailAlertsListener, LoggingListener } from './behavioral/event-observer';
+import { StarbuzzCoffee } from './structural/decorator';
+import { DiningFoodCafe } from './structural/pizza-decorator';
 
 console.log('Hey! Let\'s begin!');
 
@@ -78,14 +80,23 @@ console.log('Hey! Let\'s begin!');
 
 // ----------------------------------------------------------------
 
-const editor = new Editor();
-const logger = new LoggingListener('log.txt', 'Someone has opened the file: %s');
-const emailAlerts = new EmailAlertsListener('admin@example.com', 'Someone has changed the file: %s');
+// const editor = new Editor();
+// const logger = new LoggingListener('log.txt', 'Someone has opened the file: %s');
+// const emailAlerts = new EmailAlertsListener('admin@example.com', 'Someone has changed the file: %s');
 
-editor.eventManager.subscribe('openFile', emailAlerts);
-editor.eventManager.subscribe('getFileSize', logger);
+// editor.eventManager.subscribe('openFile', emailAlerts);
+// editor.eventManager.subscribe('getFileSize', logger);
 
-editor.getFileSize();
-editor.openFile('test.txt');
+// editor.getFileSize();
+// editor.openFile('test.txt');
+
+// ----------------------------------------------------------------
+
+const starbuzzCoffeeShop = new StarbuzzCoffee();
+starbuzzCoffeeShop.orderBeverage();
+
+const cafe = new DiningFoodCafe();
+cafe.orderThickPizza();
+cafe.orderThinPizza();
 
 // ----------------------------------------------------------------

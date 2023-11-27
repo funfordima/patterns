@@ -7,6 +7,7 @@ import { Editor, EmailAlertsListener, LoggingListener } from './behavioral/event
 import { StarbuzzCoffee } from './structural/decorator';
 import { DiningFoodCafe } from './structural/pizza-decorator';
 import { NotificationApp } from './structural/notification-decorator';
+import { Cafe } from './behavioral/iterator';
 
 console.log('Hey! Let\'s begin!');
 
@@ -102,4 +103,12 @@ console.log('Hey! Let\'s begin!');
 
 // ----------------------------------------------------------------
 
-new NotificationApp().dumbUsageExample();
+// new NotificationApp().dumbUsageExample();
+
+// ----------------------------------------------------------------
+
+const cafe = new Cafe();
+cafe.printMenu(cafe.pancakeHouseMenu!);
+cafe.printMenu(cafe.dinerMenu!);
+
+// ----------------------------------------------------------------

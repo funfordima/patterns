@@ -6,6 +6,7 @@ import { WeatherStation, User, Logger, Alert } from './behavioral/observer';
 import { Editor, EmailAlertsListener, LoggingListener } from './behavioral/event-observer';
 import { StarbuzzCoffee } from './structural/decorator';
 import { DiningFoodCafe } from './structural/pizza-decorator';
+import { NotificationApp } from './structural/notification-decorator';
 
 console.log('Hey! Let\'s begin!');
 
@@ -92,11 +93,13 @@ console.log('Hey! Let\'s begin!');
 
 // ----------------------------------------------------------------
 
-const starbuzzCoffeeShop = new StarbuzzCoffee();
-starbuzzCoffeeShop.orderBeverage();
+// const starbuzzCoffeeShop = new StarbuzzCoffee();
+// starbuzzCoffeeShop.orderBeverage();
 
-const cafe = new DiningFoodCafe();
-cafe.orderThickPizza();
-cafe.orderThinPizza();
+// const cafe = new DiningFoodCafe();
+// cafe.orderThickPizza();
+// cafe.orderThinPizza();
 
 // ----------------------------------------------------------------
+
+new NotificationApp().dumbUsageExample();

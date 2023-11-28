@@ -8,6 +8,7 @@ import { StarbuzzCoffee } from './structural/decorator';
 import { DiningFoodCafe } from './structural/pizza-decorator';
 import { NotificationApp } from './structural/notification-decorator';
 import { Cafe } from './behavioral/iterator';
+import { NetworkApp } from './behavioral/network-iterator';
 
 console.log('Hey! Let\'s begin!');
 
@@ -107,8 +108,19 @@ console.log('Hey! Let\'s begin!');
 
 // ----------------------------------------------------------------
 
-const cafe = new Cafe();
-cafe.printMenu(cafe.pancakeHouseMenu!);
-cafe.printMenu(cafe.dinerMenu!);
+// const cafe = new Cafe();
+// cafe.printMenu(cafe.pancakeHouseMenu!);
+// cafe.printMenu(cafe.dinerMenu!);
 
 // ----------------------------------------------------------------
+
+const networkApp = new NetworkApp('Facebook');
+networkApp.sendSpamToFriends(1);
+networkApp.sendSpamToCoworkers(1);
+
+const notificationApp = new NetworkApp('Linkedin');
+notificationApp.sendSpamToFriends(1);
+notificationApp.sendSpamToCoworkers(1);
+
+// ----------------------------------------------------------------
+
